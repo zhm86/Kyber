@@ -29,6 +29,14 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v3.0.1
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        path: D:\a\Kyber\Kyber\build\Launcher\Release\KyberLauncher.exe
+        
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v1.0.7
+      with:
+        path: D:\a\Kyber\Kyber\build\Launcher\Release\KyberLauncher.exe
+
 
