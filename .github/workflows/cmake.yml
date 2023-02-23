@@ -1,10 +1,12 @@
 name: CMake
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      refToBuild:
+        description: 'd20ab2623c69b477ae99d15ae157885aad2dd138'
+        required: true
+        type: string
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
