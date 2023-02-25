@@ -1,12 +1,10 @@
 name: CMake
 
 on:
-  workflow_dispatch:
-    inputs:
-      refToBuild:
-        description: 'd20ab2623c69b477ae99d15ae157885aad2dd138'
-        required: true
-        type: string
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -40,5 +38,13 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         path: D:\a\Kyber\Kyber\build\Release\Kyber.dll
-
-
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        path: D:\a\Kyber\Kyber\build\Release\Installer.exe
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        path: D:\a\Kyber\Kyber\build\Release\KyberInstaller.dll
