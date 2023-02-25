@@ -39,12 +39,8 @@ jobs:
       with:
         path: D:\a\Kyber\Kyber\build\Release\Kyber.dll
         
+       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
-        path: D:\a\Kyber\Kyber\build\Release\Installer.exe
-        
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        path: D:\a\Kyber\Kyber\build\Release\KyberInstaller.dll
+        path: D:\a\Kyber\Kyber\build\Release\KyberInstaller.exe
