@@ -3,9 +3,9 @@ name: CMake
 
 on:
   push:
-    branches: [ "fix-team" ]
+    branches: [ "request3" ]
   pull_request:
-    branches: [ "fix-team" ]
+    branches: [ "request3" ]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
