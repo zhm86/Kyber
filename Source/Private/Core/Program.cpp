@@ -67,6 +67,7 @@ Program::~Program()
 
 DWORD WINAPI Program::InitializationThread()
 {
+    std::this_thread::sleep_for(std::chrono::milliseconds(40000));
     KYBER_LOG(LogLevel::Info, "Initializing...");
     KYBER_LOG(LogLevel::Info, " _____     _   _   _     ____           _ ");
     KYBER_LOG(LogLevel::Info, "| __  |___| |_| |_| |___|    \\ ___ ___| |_");
