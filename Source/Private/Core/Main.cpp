@@ -12,7 +12,7 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hModule,DWORD dwReason,LPVOID lpReserve
     static HINSTANCE hL;
     if (dwReason == DLL_PROCESS_ATTACH)
     {
-        hL = LoadLibrary(_T(".\\dinput8_org.dll"));
+        hL = LoadLibrary(".\\dinput8_org.dll");
 		if (!hL) return false;
         g_program = new Kyber::Program(hModule);
     }
