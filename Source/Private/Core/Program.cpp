@@ -52,7 +52,7 @@ Program::Program(HMODULE module)
     SetConsoleMode(stdoutHandle, dwMode);
 
     SetConsoleTitleA(("Kyber v" + KYBER_VERSION).c_str());
-
+    std::this_thread::sleep_for(std::chrono::milliseconds(40000));
     new std::thread(&Program::InitializationThread, this);
 }
 
@@ -67,7 +67,7 @@ Program::~Program()
 
 DWORD WINAPI Program::InitializationThread()
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(40000));
+
     KYBER_LOG(LogLevel::Info, "Initializing...");
     KYBER_LOG(LogLevel::Info, " _____     _   _   _     ____           _ ");
     KYBER_LOG(LogLevel::Info, "| __  |___| |_| |_| |___|    \\ ___ ___| |_");
