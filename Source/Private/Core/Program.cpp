@@ -16,6 +16,7 @@
 #include <MinHook/MinHook.h>
 
 #include <Windows.h>
+#include <winuser.h>
 #include <cstdio>
 #include <chrono>
 #include <thread>
@@ -73,7 +74,12 @@ DWORD WINAPI Program::InitializationThread()
     KYBER_LOG(LogLevel::Info, "| __  |___| |_| |_| |___|    \\ ___ ___| |_");
     KYBER_LOG(LogLevel::Info, "| __ -| .'|  _|  _| | -_|  |  | .'|_ -|   |");
     KYBER_LOG(LogLevel::Info, "|_____|__,|_| |_| |_|___|____/|__,|___|_|_|");
-    std::this_thread::sleep_for(std::chrono::milliseconds(55000));
+    
+    while (!FindWindow("Frostbite", "STAR WARS Battlefront II"))
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    }
+    
     InitializeGameHooks();
 
     m_api = new KyberAPIService();
