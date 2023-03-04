@@ -52,7 +52,7 @@ Program::Program(HMODULE module)
     SetConsoleMode(stdoutHandle, dwMode);
 
     SetConsoleTitleA(("Kyber v" + KYBER_VERSION).c_str());
-    std::this_thread::sleep_for(std::chrono::milliseconds(40000));
+
     new std::thread(&Program::InitializationThread, this);
 }
 
@@ -73,7 +73,7 @@ DWORD WINAPI Program::InitializationThread()
     KYBER_LOG(LogLevel::Info, "| __  |___| |_| |_| |___|    \\ ___ ___| |_");
     KYBER_LOG(LogLevel::Info, "| __ -| .'|  _|  _| | -_|  |  | .'|_ -|   |");
     KYBER_LOG(LogLevel::Info, "|_____|__,|_| |_| |_|___|____/|__,|___|_|_|");
-
+    std::this_thread::sleep_for(std::chrono::milliseconds(55000));
     InitializeGameHooks();
 
     m_api = new KyberAPIService();
