@@ -83,9 +83,11 @@ DWORD WINAPI Program::InitializationThread()
         hWndFind = FindWindow("Frostbite", "STAR WARS Battlefront II");
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     }
-    
+    KYBER_LOG(LogLevel::Info, hWndFind);
     KYBER_LOG(LogLevel::Info, "MainWindow founded, waiting for game loading...");
-    std::this_thread::sleep_for(std::chrono::milliseconds(35000));
+	hWndFind = FindWindow("Frostbite", "STAR WARS Battlefront II");
+	KYBER_LOG(LogLevel::Info, hWndFind);
+    std::this_thread::sleep_for(std::chrono::milliseconds(45000));
     InitializeGameHooks();
 
     m_api = new KyberAPIService();
