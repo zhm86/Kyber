@@ -12,7 +12,7 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hModule,DWORD dwReason,LPVOID lpReserve
     static HINSTANCE hL;
     if (dwReason == DLL_PROCESS_ATTACH)
     {
-        hL = LoadLibrary("C:\\Windows\\System32\\dinput8.dll");
+        hL = LoadLibrary(".\\dinput8_org.dll");
 		if (!hL) return false;
         g_program = new Kyber::Program(hModule);
     }
@@ -25,12 +25,12 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hModule,DWORD dwReason,LPVOID lpReserve
     return TRUE;
 }
 
-#pragma comment(linker, "/export:DirectInput8Create=dinput8.DirectInput8Create")
+#pragma comment(linker, "/export:DirectInput8Create=dinput8_org.DirectInput8Create")
 
-#pragma comment(linker, "/export:DllGetClassObject=dinput8.DllGetClassObject")
+#pragma comment(linker, "/export:DllGetClassObject=dinput8_org.DllGetClassObject")
 
-#pragma comment(linker, "/export:DllCanUnloadNow=dinput8.DllCanUnloadNow")
+#pragma comment(linker, "/export:DllCanUnloadNow=dinput8_org.DllCanUnloadNow")
 
-#pragma comment(linker, "/export:DllRegisterServer=dinput8.DllRegisterServer")
+#pragma comment(linker, "/export:DllRegisterServer=dinput8_org.DllRegisterServer")
 
-#pragma comment(linker, "/export:DllUnregisterServer=dinput8.DllUnregisterServer")
+#pragma comment(linker, "/export:DllUnregisterServer=dinput8_org.DllUnregisterServer")
